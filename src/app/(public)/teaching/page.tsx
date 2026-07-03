@@ -188,18 +188,6 @@ export default async function TeachingPage() {
             </div>
           )}
 
-          {/* Teaching philosophy note */}
-          <div className="mt-16 da-card p-8 text-center">
-            <BookOpen size={28} className="text-da-accent mx-auto mb-4" />
-            <h3 className="font-serif text-xl font-semibold text-da-text mb-3">
-              Teaching Philosophy
-            </h3>
-            <p className="text-da-text-muted text-sm leading-relaxed max-w-2xl mx-auto">
-              I believe in active, inquiry-driven learning. My courses blend theoretical foundations with
-              hands-on data exploration, encouraging students to question assumptions, critically evaluate
-              evidence, and connect neuroscience to real-world technology and design challenges.
-            </p>
-          </div>
         </div>
       </section>
     </main>

@@ -142,8 +142,8 @@ const EDUCATION = [
 
 const typeColors: Record<string, string> = {
   education: 'bg-da-accent',
-  research: 'bg-da-success',
-  work: 'bg-da-text-muted',
+  research: 'bg-da-accent',
+  work: 'bg-da-accent',
 }
 
 export default async function AboutPage() {
@@ -159,7 +159,7 @@ export default async function AboutPage() {
   const displayBio = bio || [
     'Cognitive scientist and UX researcher with a strong background in experimental design, data analysis, and human–technology interaction. PhD candidate at Academia Rerum Socialium, Toruń.',
     'My thesis investigates how manipulating perceptual features of artificial agents shapes the observer\'s attribution of intentionality and emotion — a question at the crossroads of cognitive science, philosophy of mind, and human–robot interaction.',
-    'I conduct research stays at the Embodied Cognition Lab in Lisbon and at the Klaes Lab (neuroprosthetics) at Ruhr University Bochum. Alongside academic work, I co-founded MindEasy, a neurotechnology startup offering VR-enhanced regenerative retreats and biofeedback training. Previously I worked as a UX/AR/VR specialist at VOBACOM and as a biometric data analyst at ASM Centrum.',
+    'Alongside academic work, I co-founded MindEasy, a neurotechnology startup developing educational and clinical VR applications integrating AI and BCI technology. Previously I worked as a UX/AR/VR specialist at VOBACOM and as a biometric data analyst at ASM Centrum.',
   ].join('\n')
 
   return (
@@ -186,7 +186,7 @@ export default async function AboutPage() {
           <div className="mt-6 flex flex-wrap gap-4 text-sm text-da-text-muted">
             <span className="flex items-center gap-1.5">
               <MapPin size={14} className="text-da-accent" />
-              Toruń, Poland (+ Lisbon & Bochum)
+              Toruń, Poland
             </span>
             <a
               href="mailto:lukasik.albert@proton.me"
@@ -373,7 +373,7 @@ export default async function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-da-accent text-da-bg px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+            className="inline-flex items-center gap-2 bg-da-accent text-[#0c0b10] px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
           >
             <Mail size={16} />
             Get in touch

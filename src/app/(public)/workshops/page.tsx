@@ -1,14 +1,13 @@
-import { Users, Clock, Monitor, MapPin, Globe, FolderOpen } from 'lucide-react'
+import { MapPin, Globe, Monitor, FolderOpen } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { getPublishedWorkshops } from '@/lib/supabase/queries'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Badge from '@/components/ui/Badge'
 import type { Workshop } from '@/types'
-import Link from 'next/link'
 
 export const metadata = {
   title: 'Workshops — Albert Łukasik',
-  description: 'Workshops by Albert Łukasik on AI, VR, neurotechnology, and UX research.',
+  description: 'Past workshops and talks by Albert Łukasik on AI, VR, neurotechnology, and UX research.',
 }
 
 const STATIC_WORKSHOPS: Workshop[] = [
@@ -17,20 +16,14 @@ const STATIC_WORKSHOPS: Workshop[] = [
     title: 'Introduction to AI in Research & Education',
     slug: 'ai-in-research-education',
     summary:
-      'A hands-on workshop for academics and educators on integrating AI tools into research workflows, teaching practices, and data analysis.',
-    description:
-      'This workshop provides a practical introduction to large language models, prompt engineering, and AI-assisted research tools. Participants learn to leverage AI for literature synthesis, qualitative coding, statistical reasoning, and educational content design. No prior programming experience required.',
+      'A hands-on session for academics and educators on integrating AI tools into research workflows, teaching practices, and data analysis. Delivered at NCU Toruń.',
+    description: '',
     target_audience: 'Academics, educators, PhD students',
     duration: '3 hours',
     format: 'hybrid',
-    topics: ['Large language models', 'Prompt engineering', 'AI-assisted research', 'Academic writing support', 'Ethical considerations'],
-    learning_outcomes: [
-      'Understand core capabilities and limitations of current AI systems',
-      'Apply prompt engineering techniques for research tasks',
-      'Critically evaluate AI-generated content',
-      'Integrate AI tools responsibly into academic workflows',
-    ],
-    workshop_status: 'available',
+    topics: ['Large language models', 'Prompt engineering', 'AI-assisted research', 'Ethical considerations'],
+    learning_outcomes: [],
+    workshop_status: 'past',
     status: 'published',
     created_at: '',
     updated_at: '',
@@ -40,20 +33,14 @@ const STATIC_WORKSHOPS: Workshop[] = [
     title: 'VR & Biofeedback for Wellbeing',
     slug: 'vr-biofeedback-wellbeing',
     summary:
-      'An experiential workshop exploring how virtual reality and real-time biofeedback can be used for stress regulation, mindfulness, and cognitive training.',
-    description:
-      'Participants experience VR mindscapes calibrated to physiological state via EEG and HRV biofeedback. The workshop covers the neuroscience behind relaxation and attention, practical demonstrations with VR headsets and biosensors, and design principles for therapeutic XR environments. Delivered in collaboration with MindEasy.',
+      'Experiential session exploring how virtual reality and real-time biofeedback can be used for stress regulation, mindfulness, and cognitive training. Delivered in collaboration with MindEasy.',
+    description: '',
     target_audience: 'Health professionals, psychology students, wellness practitioners',
     duration: '4 hours',
     format: 'onsite',
-    topics: ['VR for wellbeing', 'EEG neurofeedback', 'HRV biofeedback', 'Stress regulation neuroscience', 'XR design principles'],
-    learning_outcomes: [
-      'Experience biofeedback-adaptive VR environments firsthand',
-      'Understand physiological markers of stress and relaxation',
-      'Evaluate the evidence base for VR therapeutic applications',
-      'Apply basic design principles for wellbeing-oriented XR',
-    ],
-    workshop_status: 'available',
+    topics: ['VR for wellbeing', 'EEG neurofeedback', 'HRV biofeedback', 'Stress regulation neuroscience'],
+    learning_outcomes: [],
+    workshop_status: 'past',
     status: 'published',
     created_at: '',
     updated_at: '',
@@ -63,20 +50,14 @@ const STATIC_WORKSHOPS: Workshop[] = [
     title: 'UX Research Methods for Technology Interfaces',
     slug: 'ux-research-methods',
     summary:
-      'Practical training in user experience research methods — from cognitive walkthroughs to eye-tracking — applied to digital and physical interfaces.',
-    description:
-      'This workshop introduces the core toolkit of UX research: usability testing, think-aloud protocols, eye-tracking, physiological measures, and survey design. Participants conduct a mini usability study in real time and interpret the data. Suitable for designers, product teams, and researchers entering UX.',
+      'Practical training in UX research methods — from cognitive walkthroughs to eye-tracking — applied to digital and physical interfaces. Participants conducted a mini usability study in real time.',
+    description: '',
     target_audience: 'UX designers, product managers, researchers',
-    duration: '6 hours (full day)',
+    duration: '6 hours',
     format: 'onsite',
-    topics: ['Usability testing', 'Think-aloud protocol', 'Eye-tracking basics', 'Survey design', 'Physiological UX measures', 'Data analysis'],
-    learning_outcomes: [
-      'Plan and execute a basic usability study',
-      'Collect and interpret qualitative UX data',
-      'Apply physiological measurement in UX contexts',
-      'Report findings effectively to stakeholders',
-    ],
-    workshop_status: 'available',
+    topics: ['Usability testing', 'Think-aloud protocol', 'Eye-tracking basics', 'Survey design', 'Physiological UX measures'],
+    learning_outcomes: [],
+    workshop_status: 'past',
     status: 'published',
     created_at: '',
     updated_at: '',
@@ -86,18 +67,13 @@ const STATIC_WORKSHOPS: Workshop[] = [
     title: 'Cognitive Science of Games & Immersive Environments',
     slug: 'cognitive-science-games',
     summary:
-      'A talk and workshop exploring what cognitive science tells us about attention, memory, motivation, and learning in game environments.',
-    description:
-      'Presented at the 7th Summer School of Cognitive Science (Kazimierz Dolny, 2023), this session covers the psychological principles underlying game design: flow states, variable reward schedules, spatial cognition in 3D environments, and the controversial question of whether video games improve cognition. Includes interactive demonstrations.',
+      'Talk and workshop presented at the 7th Summer School of Cognitive Science (Kazimierz Dolny, 2023). Covered psychological principles underlying game design: flow states, variable reward, spatial cognition, and learning in VR.',
+    description: '',
     target_audience: 'Cognitive science students, game designers, educators',
     duration: '2 hours',
     format: 'onsite',
     topics: ['Flow states', 'Variable reward', 'Spatial cognition in games', 'Learning in VR', 'Attention & engagement'],
-    learning_outcomes: [
-      'Apply cognitive science concepts to game design critique',
-      'Understand the neuroscience of immersive environments',
-      'Evaluate claims about cognitive training games',
-    ],
+    learning_outcomes: [],
     workshop_status: 'past',
     status: 'published',
     created_at: '',
@@ -117,12 +93,6 @@ const formatLabels = {
   hybrid: 'Hybrid',
 }
 
-function statusVariant(status: string): 'success' | 'muted' | 'accent' | 'default' {
-  if (status === 'available') return 'success'
-  if (status === 'planned') return 'accent'
-  return 'muted'
-}
-
 export default async function WorkshopsPage() {
   let workshops: Workshop[] = []
   try {
@@ -133,10 +103,6 @@ export default async function WorkshopsPage() {
   }
 
   const displayWorkshops = workshops.length > 0 ? workshops : STATIC_WORKSHOPS
-
-  const available = displayWorkshops.filter((w) => w.workshop_status === 'available')
-  const past = displayWorkshops.filter((w) => w.workshop_status === 'past' || w.workshop_status === 'archived')
-  const planned = displayWorkshops.filter((w) => w.workshop_status === 'planned')
 
   return (
     <main>
@@ -154,146 +120,61 @@ export default async function WorkshopsPage() {
           <SectionHeader
             label="Workshops"
             title="Workshops & Talks"
-            description="Practical sessions and invited talks on AI, virtual reality, neurotechnology, and UX research — for academics, students, and professionals."
+            description="Past sessions and invited talks on AI, virtual reality, neurotechnology, and UX research — delivered at conferences, summer schools, and academic events."
           />
-          <div className="mt-8">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-da-accent text-da-bg px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
-            >
-              Enquire about a workshop
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── Available workshops ── */}
-      {available.length > 0 && (
-        <section className="pb-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h2 className="font-serif text-2xl font-semibold text-da-text whitespace-nowrap">
-                Available Now
-              </h2>
-              <div className="flex-1 h-px bg-da-border-subtle" />
+      {/* ── Workshop list ── */}
+      <section className="pb-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          {displayWorkshops.length === 0 ? (
+            <div className="text-center py-24">
+              <FolderOpen size={40} className="text-da-text-faint mx-auto mb-4" />
+              <p className="text-da-text-muted">No workshops listed yet.</p>
             </div>
-            <WorkshopGrid workshops={available} />
-          </div>
-        </section>
-      )}
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {displayWorkshops.map((workshop) => {
+                const FormatIcon = formatIcons[workshop.format] ?? Monitor
+                return (
+                  <div key={workshop.id} className="da-card p-6 flex flex-col">
+                    <div className="flex items-center gap-2 mb-4 text-xs text-da-text-faint">
+                      <FormatIcon size={12} className="text-da-accent" />
+                      <span>{formatLabels[workshop.format]}</span>
+                      {workshop.duration && (
+                        <>
+                          <span>·</span>
+                          <span>{workshop.duration}</span>
+                        </>
+                      )}
+                    </div>
 
-      {/* ── Planned ── */}
-      {planned.length > 0 && (
-        <section className="pb-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h2 className="font-serif text-2xl font-semibold text-da-text whitespace-nowrap">
-                Coming Soon
-              </h2>
-              <div className="flex-1 h-px bg-da-border-subtle" />
+                    <h3 className="font-serif text-xl font-semibold text-da-text leading-snug mb-3">
+                      {workshop.title}
+                    </h3>
+
+                    <p className="text-sm text-da-text-muted leading-relaxed flex-1 mb-4">
+                      {workshop.summary}
+                    </p>
+
+                    {workshop.topics && workshop.topics.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {workshop.topics.slice(0, 4).map((topic) => (
+                          <Badge key={topic} variant="muted">{topic}</Badge>
+                        ))}
+                        {workshop.topics.length > 4 && (
+                          <Badge variant="muted">+{workshop.topics.length - 4} more</Badge>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
-            <WorkshopGrid workshops={planned} />
-          </div>
-        </section>
-      )}
-
-      {/* ── Past workshops ── */}
-      {past.length > 0 && (
-        <section className="pb-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-4 mb-8">
-              <h2 className="font-serif text-2xl font-semibold text-da-text-muted whitespace-nowrap">
-                Past Sessions
-              </h2>
-              <div className="flex-1 h-px bg-da-border-subtle" />
-            </div>
-            <WorkshopGrid workshops={past} muted />
-          </div>
-        </section>
-      )}
-
-      {displayWorkshops.length === 0 && (
-        <section className="pb-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center py-24">
-            <FolderOpen size={40} className="text-da-text-faint mx-auto mb-4" />
-            <p className="text-da-text-muted">No workshops listed yet. Check back soon.</p>
-          </div>
-        </section>
-      )}
+          )}
+        </div>
+      </section>
     </main>
-  )
-}
-
-function WorkshopGrid({ workshops, muted = false }: { workshops: Workshop[]; muted?: boolean }) {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {workshops.map((workshop) => {
-        const FormatIcon = formatIcons[workshop.format] ?? Monitor
-        return (
-          <div key={workshop.id} className={`da-card p-6 flex flex-col ${muted ? 'opacity-70' : ''}`}>
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <Badge variant={statusVariant(workshop.workshop_status)}>
-                {workshop.workshop_status}
-              </Badge>
-              <span className="flex items-center gap-1 text-xs text-da-text-faint">
-                <FormatIcon size={11} />
-                {formatLabels[workshop.format]}
-              </span>
-            </div>
-
-            <h3 className="font-serif text-xl font-semibold text-da-text leading-snug mb-3">
-              {workshop.title}
-            </h3>
-
-            <p className="text-sm text-da-text-muted leading-relaxed flex-1 mb-4">
-              {workshop.summary}
-            </p>
-
-            {/* Meta */}
-            <div className="flex flex-wrap gap-4 text-xs text-da-text-faint mb-4">
-              {workshop.duration && (
-                <span className="flex items-center gap-1">
-                  <Clock size={11} className="text-da-accent" />
-                  {workshop.duration}
-                </span>
-              )}
-              {workshop.target_audience && (
-                <span className="flex items-center gap-1">
-                  <Users size={11} className="text-da-accent" />
-                  {workshop.target_audience}
-                </span>
-              )}
-            </div>
-
-            {/* Topics */}
-            {workshop.topics && workshop.topics.length > 0 && (
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {workshop.topics.slice(0, 4).map((topic) => (
-                  <Badge key={topic} variant="muted">{topic}</Badge>
-                ))}
-                {workshop.topics.length > 4 && (
-                  <Badge variant="muted">+{workshop.topics.length - 4} more</Badge>
-                )}
-              </div>
-            )}
-
-            {/* Learning outcomes */}
-            {workshop.learning_outcomes && workshop.learning_outcomes.length > 0 && (
-              <div className="mt-2 pt-4 border-t border-da-border-subtle">
-                <p className="da-label mb-2">You will learn to</p>
-                <ul className="space-y-1.5">
-                  {workshop.learning_outcomes.slice(0, 3).map((outcome) => (
-                    <li key={outcome} className="flex items-start gap-2 text-xs text-da-text-muted">
-                      <span className="w-1.5 h-1.5 rounded-full bg-da-accent flex-shrink-0 mt-1.5" />
-                      {outcome}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        )
-      })}
-    </div>
   )
 }

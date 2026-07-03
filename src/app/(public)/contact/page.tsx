@@ -28,7 +28,7 @@ const CONTACT_METHODS = [
     label: 'Location',
     value: 'Toruń, Poland',
     href: null,
-    description: 'Also visiting Lisbon and Bochum regularly',
+    description: 'Open to remote collaboration worldwide',
   },
   {
     icon: Clock,

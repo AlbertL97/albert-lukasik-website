@@ -1,4 +1,4 @@
-import { ExternalLink, Globe, AtSign, BookOpen, Rss, Link2, GitBranch } from 'lucide-react'
+import { ExternalLink, Globe, AtSign, BookOpen, Link2, GitBranch } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { getPublishedExternalLinks } from '@/lib/supabase/queries'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -79,14 +79,26 @@ const STATIC_LINKS: ExternalLinkType[] = [
   },
 ]
 
+function FlipboardIcon({ size = 18 }: { size?: number }) {
+  return (
+    <span
+      style={{ fontSize: size * 0.9, lineHeight: 1, fontWeight: 700, fontFamily: 'serif' }}
+      className="text-da-accent select-none"
+    >
+      f
+    </span>
+  )
+}
+
 const PLATFORM_ICONS: Record<string, React.ElementType> = {
   linkedin: Globe,
   instagram: AtSign,
   scholar: BookOpen,
-  flipboard: Rss,
+  flipboard: FlipboardIcon,
   github: GitBranch,
   linktree: Link2,
   website: Globe,
+  google_scholar: BookOpen,
 }
 
 const CATEGORY_LABELS: Record<string, string> = {

@@ -95,23 +95,6 @@ const STATIC_PROJECTS: Project[] = [
     created_at: '',
     updated_at: '',
   },
-  {
-    id: '3',
-    title: 'Depth Perception in Augmented Reality',
-    slug: 'ar-depth-perception',
-    summary: 'Experimental study examining how perceptual dimensions of virtual objects affect depth judgement in mixed-reality environments.',
-    description: '',
-    project_type: 'Academic Research',
-    role: 'Principal Investigator',
-    methods: ['Experimental Design', 'AR Headset Studies', 'Statistical Analysis'],
-    technologies: ['Unity', 'HoloLens', 'R'],
-    start_date: '2022-09-01',
-    project_status: 'completed',
-    links: [],
-    status: 'published',
-    created_at: '',
-    updated_at: '',
-  },
 ]
 
 export default async function HomePage() {
@@ -162,12 +145,12 @@ export default async function HomePage() {
             <p className="mt-6 text-base sm:text-lg text-da-text-muted max-w-2xl leading-relaxed">
               Cognitive scientist exploring how humans perceive minds in machines. I design experiments, build
               VR learning environments, and research the intersection of neuroscience, technology, and human
-              experience — from Toruń, Lisbon, and Bochum.
+              experience — based in Toruń.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 bg-da-accent text-da-bg px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+                className="inline-flex items-center gap-2 bg-da-accent text-[#0c0b10] px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
               >
                 About me
                 <ArrowRight size={16} />
@@ -350,7 +333,7 @@ export default async function HomePage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-da-accent text-da-bg px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+              className="inline-flex items-center gap-2 bg-da-accent text-[#0c0b10] px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
             >
               <Mail size={16} />
               Contact me
