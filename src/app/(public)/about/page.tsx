@@ -373,7 +373,7 @@ export default async function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-da-accent text-[#0c0b10] px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+            className="inline-flex items-center gap-2 bg-da-accent text-black px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
           >
             <Mail size={16} />
             Get in touch

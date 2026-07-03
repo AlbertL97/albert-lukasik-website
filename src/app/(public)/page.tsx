@@ -150,7 +150,7 @@ export default async function HomePage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 bg-da-accent text-[#0c0b10] px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+                className="inline-flex items-center gap-2 bg-da-accent text-black px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
               >
                 About me
                 <ArrowRight size={16} />
@@ -333,7 +333,7 @@ export default async function HomePage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-da-accent text-[#0c0b10] px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+              className="inline-flex items-center gap-2 bg-da-accent text-black px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
             >
               <Mail size={16} />
               Contact me
