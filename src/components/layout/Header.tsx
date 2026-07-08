@@ -10,6 +10,8 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/research', label: 'Research' },
+  { href: '/llm-wiki', label: 'LLM Wiki' },
+  { href: '/conference-searcher', label: 'Conferences' },
   { href: '/teaching', label: 'Teaching' },
   { href: '/workshops', label: 'Workshops' },
   { href: '/blog', label: 'Blog' },
@@ -35,7 +37,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-5" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
