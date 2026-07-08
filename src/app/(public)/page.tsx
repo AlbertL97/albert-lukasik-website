@@ -30,30 +30,10 @@ const STATIC_ACTIVITIES: CurrentActivity[] = [
   },
   {
     id: '2',
-    category: 'Research',
-    title: 'Embodied Cognition Lab',
-    description: 'Research stay — Lisbon, Portugal. Exploring embodied approaches to AI-human interaction',
-    display_order: 2,
-    status: 'published',
-    created_at: '',
-    updated_at: '',
-  },
-  {
-    id: '3',
-    category: 'Research',
-    title: 'Klaes Lab, Ruhr University Bochum',
-    description: 'Research collaboration — Bochum, Germany. Focus on neuroprosthetics and motor cognition',
-    display_order: 3,
-    status: 'published',
-    created_at: '',
-    updated_at: '',
-  },
-  {
-    id: '4',
     category: 'Startup',
     title: 'MindEasy Co-Founder',
-    description: 'Neurotechnology startup offering VR-enhanced regenerative retreats and biofeedback training',
-    display_order: 4,
+    description: 'Neurotechnology startup developing educational and clinical VR applications integrating AI and BCI technology',
+    display_order: 2,
     status: 'published',
     created_at: '',
     updated_at: '',
@@ -72,7 +52,7 @@ const STATIC_PROJECTS: Project[] = [
     methods: ['NLP', 'Discourse Analysis', 'Python'],
     technologies: ['Python', 'Reddit API', 'NLP'],
     start_date: '2023-01-01',
-    project_status: 'completed',
+    project_status: 'ongoing',
     links: [{ label: 'GitHub', url: 'https://github.com/AlbertL97/artificialbond', type: 'github' }],
     status: 'published',
     created_at: '',
@@ -135,7 +115,6 @@ export default async function HomePage() {
         />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="da-label mb-5">Welcome</p>
             <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-da-text leading-tight">
               Albert&nbsp;Łukasik
             </h1>
@@ -150,7 +129,8 @@ export default async function HomePage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 bg-da-accent text-black px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+                style={{ color: '#0c0b10' }}
+                className="inline-flex items-center gap-2 bg-da-accent px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
               >
                 About me
                 <ArrowRight size={16} />
@@ -171,8 +151,10 @@ export default async function HomePage() {
       {/* ── Current Roles ── */}
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="da-label mb-6">Currently</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-da-text mb-8">
+            Current jobs
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {displayActivities.map((activity) => (
               <div key={activity.id} className="da-card p-5">
                 <span className="da-label text-da-text-faint">{activity.category}</span>
@@ -205,7 +187,6 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-8 gap-4">
             <div>
-              <p className="da-label mb-2">Selected Work</p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-da-text">
                 Featured Projects
               </h2>
@@ -252,7 +233,6 @@ export default async function HomePage() {
       {/* ── Research Interests ── */}
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="da-label mb-2">Expertise</p>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-da-text mb-8">
             Research Interests
           </h2>
@@ -322,7 +302,6 @@ export default async function HomePage() {
       {/* ── Contact CTA ── */}
       <section className="py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="da-label mb-4">Get in touch</p>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-da-text">
             Let&apos;s connect
           </h2>
@@ -333,7 +312,8 @@ export default async function HomePage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-da-accent text-black px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+              style={{ color: '#0c0b10' }}
+              className="inline-flex items-center gap-2 bg-da-accent px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
             >
               <Mail size={16} />
               Contact me

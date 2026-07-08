@@ -106,15 +106,15 @@ const SKILLS = [
   },
   {
     category: 'Design & Visualisation',
-    items: ['UX Research', 'Figma / Adobe XD', 'Unity (AR/VR)', 'React / TypeScript', 'FastAPI'],
+    items: ['UX Research', 'Figma', 'Unity (AR/VR)'],
   },
   {
     category: 'Research Tools',
-    items: ['PsychoPy', 'E-Prime', 'OpenBCI / EEG toolkits', 'Qualtrics', 'NVivo'],
+    items: ['OpenBCI / EEG toolkits', 'SPSS', 'jamovi', 'AI-based tools'],
   },
   {
     category: 'Languages',
-    items: ['Polish — native', 'English — C1/C2', 'German — B1 (learning)', 'Portuguese — beginner'],
+    items: ['Polish — native', 'English — C1/C2'],
   },
 ]
 
@@ -373,7 +373,8 @@ export default async function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-da-accent text-black px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
+            style={{ color: '#0c0b10' }}
+            className="inline-flex items-center gap-2 bg-da-accent px-6 py-3 rounded-lg font-semibold text-sm hover:bg-da-accent-hover transition-colors"
           >
             <Mail size={16} />
             Get in touch

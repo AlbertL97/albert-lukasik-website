@@ -1,5 +1,22 @@
 import Link from 'next/link'
-import { Globe, AtSign, BookOpen, Rss } from 'lucide-react'
+import { Globe, AtSign, BookOpen } from 'lucide-react'
+
+function FlipboardMark({ size = 18 }: { size?: number }) {
+  return (
+    <span
+      aria-hidden
+      style={{
+        fontSize: size,
+        lineHeight: 1,
+        fontWeight: 700,
+        fontFamily: 'Georgia, "Playfair Display", serif',
+      }}
+      className="select-none"
+    >
+      F
+    </span>
+  )
+}
 
 const socialLinks = [
   {
@@ -20,7 +37,7 @@ const socialLinks = [
   {
     href: 'https://flipboard.com/@Albertukasik',
     label: 'Flipboard',
-    icon: Rss,
+    icon: FlipboardMark,
   },
 ]
 
@@ -40,13 +57,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <p className="font-serif text-base font-semibold text-da-text mb-2">
+            <p className="font-serif text-lg font-semibold text-da-text mb-2">
               Albert Łukasik
             </p>
-            <p className="text-xs text-da-text-muted leading-relaxed">
+            <p className="text-sm text-da-text-muted leading-relaxed">
               PhD Researcher · VR Educator · UX Researcher
             </p>
-            <p className="text-xs text-da-text-faint mt-1">
+            <p className="text-sm text-da-text-faint mt-1">
               Toruń, Poland
             </p>
           </div>
@@ -59,7 +76,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs text-da-text-muted hover:text-da-accent transition-colors"
+                    className="text-sm text-da-text-muted hover:text-da-accent transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -85,7 +102,7 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <p className="mt-4 text-xs text-da-text-muted">
+            <p className="mt-4 text-sm text-da-text-muted">
               <a href="mailto:lukasik.albert@proton.me" className="hover:text-da-accent transition-colors">
                 lukasik.albert@proton.me
               </a>
@@ -93,7 +110,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-da-border-subtle flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-da-text-faint">
+        <div className="mt-8 pt-6 border-t border-da-border-subtle flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-da-text-faint">
           <p>© {new Date().getFullYear()} Albert Łukasik. All rights reserved.</p>
           <p>
             <Link href="/resources" className="hover:text-da-text-muted transition-colors">
